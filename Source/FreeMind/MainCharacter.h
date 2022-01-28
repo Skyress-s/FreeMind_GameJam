@@ -52,4 +52,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void DoJump();
 
+	//Joachim sanity bar
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Sanity")
+		int SanityAmount;
+
+	void LowerSanity();
+	void RaiseSanity();
+
 };

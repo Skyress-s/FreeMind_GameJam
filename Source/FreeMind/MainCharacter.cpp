@@ -61,13 +61,11 @@ void AMainCharacter::MoveRight(float Val)
 	
 }
 
-void AMainCharacter::LookX(float Val)
-{
+void AMainCharacter::LookX(float Val) {
 	AddControllerYawInput(Val * LookSpeed);
 }
 
-void AMainCharacter::LookY(float Val)
-{
+void AMainCharacter::LookY(float Val) {
 	AddControllerPitchInput(-Val * LookSpeed);
 }
 
@@ -75,6 +73,26 @@ void AMainCharacter::DoJump()
 {
 	Jump();
 
+}
+
+//joachim sanity
+void AMainCharacter::LowerSanity() {
+	if ((SanityAmount - 3) >= 0) {
+		SanityAmount -= 3;
+	}
+	else {
+		SanityAmount = 0;
+	}
+
+}
+
+void AMainCharacter::RaiseSanity() {
+	if ((SanityAmount + 3) <= 100) {
+		SanityAmount += 3;
+	}
+	else {
+		SanityAmount = 100;
+	}
 }
 
 
