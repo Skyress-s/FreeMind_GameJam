@@ -25,5 +25,31 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	// my desig
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UStaticMeshComponent* CharacterMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float Speed = 50.f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float LookSpeed = 1.f;
+
+	UFUNCTION(BlueprintCallable)
+		void MoveForward(float Val);
+
+	UFUNCTION(BlueprintCallable)
+		void MoveRight(float Val);
+	
+	UFUNCTION(BlueprintCallable)
+		void LookX(float Val);
+
+	UFUNCTION(BlueprintCallable)
+		void LookY(float Val);
+
+	UFUNCTION(BlueprintCallable)
+		void DoJump();
 
 };
