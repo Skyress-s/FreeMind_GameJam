@@ -66,4 +66,14 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Location")
 	FVector EndRayLocation;
+
+	// Linus
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Health")
+	int Health = 5;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Health")
+	FVector StartPosition;
+
+	void Damage();
+	void GameOver();
 };
