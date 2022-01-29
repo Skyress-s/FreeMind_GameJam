@@ -19,7 +19,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -42,7 +42,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void MoveRight(float Val);
-	
+
 	UFUNCTION(BlueprintCallable)
 		void LookX(float Val);
 
@@ -62,7 +62,11 @@ public:
 	void LowerSanity();
 	void RaiseSanity();
 
+	void FindPlatform();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Location")
+	FVector PlayerLocation;
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Location")
+	FVector EndRayLocation;
 };
