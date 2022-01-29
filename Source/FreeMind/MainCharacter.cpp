@@ -4,7 +4,8 @@
 
 
 #include "Components/StaticMeshComponent.h"
-
+#include "Engine/World.h"
+#include "CollisionQueryParams.h"
 #include "MainCharacter.h"
 
 // Sets default values
@@ -12,7 +13,8 @@ AMainCharacter::AMainCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+	PlayerLocation = FVector::ZeroVector;
+	EndRayLocation = FVector::ZeroVector;
 
 	CharacterMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	CharacterMesh->SetupAttachment(GetRootComponent());
@@ -31,7 +33,7 @@ void AMainCharacter::BeginPlay()
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	FindPlatform();
 }
 
 // Called to bind functionality to input
@@ -95,5 +97,27 @@ void AMainCharacter::RaiseSanity() {
 	}
 }
 
+void AMainCharacter::FindPlatform() {
+	//PlayerLocation = GetActorLocation();
+	//EndRayLocation = PlayerLocation;
+	//EndRayLocation.Z -= 150;
 
+	//FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner());
+
+	//FHitResult hit{};
+	//
+	//bool bHit = GetWorld()->LineTraceSingleByChannel(
+	//	hit,
+	//	PlayerLocation,
+	//	EndRayLocation,
+	//	FCollisionObjectQueryParams(ECollisionChannel::ECC_WorldDynamic),
+	//	TraceParams
+	//);
+	//
+	//if (bHit) {
+	//	FString temp = hit.GetActor()->GetName();
+	//	UE_LOG(LogTemp, Warning, TEXT("%s"), *temp);
+	//}
+	//
+}
 

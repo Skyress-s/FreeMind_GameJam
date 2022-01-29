@@ -59,4 +59,11 @@ public:
 	void LowerSanity();
 	void RaiseSanity();
 
+	void FindPlatform();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Location")
+	FVector PlayerLocation;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Location")
+	FVector EndRayLocation;
 };
