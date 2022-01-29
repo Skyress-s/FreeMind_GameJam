@@ -33,7 +33,6 @@ void AMainCharacter::BeginPlay()
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	FindPlatform();
 }
 
 // Called to bind functionality to input
@@ -47,14 +46,14 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindAxis("LookY", this, &AMainCharacter::LookY);
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMainCharacter::DoJump);
-	//PlayerInputComponent->BindAction("Switch", IE_Pressed, this, &AMainCharacter::SwitchDimetion);
+	
 }
 
 void AMainCharacter::MoveForward(float Val)
 {
 	if (bInsanityDimenson)
 	{
-
+		
 	}
 	else
 	{
@@ -112,30 +111,6 @@ void AMainCharacter::RaiseSanity() {
 	else {
 		SanityAmount = 100;
 	}
-}
-
-void AMainCharacter::FindPlatform() {
-	//PlayerLocation = GetActorLocation();
-	//EndRayLocation = PlayerLocation;
-	//EndRayLocation.Z -= 150;
-
-	//FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner());
-
-	//FHitResult hit{};
-	//
-	//bool bHit = GetWorld()->LineTraceSingleByChannel(
-	//	hit,
-	//	PlayerLocation,
-	//	EndRayLocation,
-	//	FCollisionObjectQueryParams(ECollisionChannel::ECC_WorldDynamic),
-	//	TraceParams
-	//);
-	//
-	//if (bHit) {
-	//	FString temp = hit.GetActor()->GetName();
-	//	UE_LOG(LogTemp, Warning, TEXT("%s"), *temp);
-	//}
-	//
 }
 
 
