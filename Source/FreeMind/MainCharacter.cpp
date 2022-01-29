@@ -80,11 +80,31 @@ void AMainCharacter::MoveRight(float Val)
 }
 
 void AMainCharacter::LookX(float Val) {
-	AddControllerYawInput(Val * LookSpeed);
+	if (bInsanityDimenson)
+	{
+		
+	}
+	else
+	{
+		AddControllerYawInput(Val * LookSpeed);
+
+	}
+
+	
+	
 }
 
 void AMainCharacter::LookY(float Val) {
-	AddControllerPitchInput(-Val * LookSpeed);
+	if (bInsanityDimenson)
+	{
+		
+	}
+	else
+	{
+		AddControllerPitchInput(-Val * LookSpeed);
+
+	}
+
 }
 
 void AMainCharacter::DoJump()
