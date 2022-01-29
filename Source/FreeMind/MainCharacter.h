@@ -74,6 +74,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Health")
 	FVector StartPosition;
 
+	UFUNCTION(BlueprintCallable)
 	void Damage();
 
 	UFUNCTION(BlueprintCallable)
