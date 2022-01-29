@@ -75,5 +75,7 @@ public:
 	FVector StartPosition;
 
 	void Damage();
+
+	UFUNCTION(BlueprintCallable)
 	void GameOver();
 };
