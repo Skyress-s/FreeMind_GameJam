@@ -6,7 +6,9 @@
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
 #include "CollisionQueryParams.h"
+#include "Kismet/GameplayStatics.h"
 #include "MainCharacter.h"
+#include "Engine/World.h"
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -154,6 +156,12 @@ void AMainCharacter::Damage()
 
 void AMainCharacter::GameOver()
 {
+	/*
+	SetActorLocation(StartPosition);*/
+	SanityAmount = 100;
 	Health = 5;
-	SetActorLocation(StartPosition);
+	UWorld* TheWorld = GetWorld();
+
+	UGameplayStatics::OpenLevel(GetWorld(), "DeathScreen");
+	
 }
