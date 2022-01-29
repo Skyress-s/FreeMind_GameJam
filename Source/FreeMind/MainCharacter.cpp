@@ -154,6 +154,7 @@ void AMainCharacter::Damage()
 
 void AMainCharacter::GameOver()
 {
+	SanityAmount = 100;
 	Health = 5;
 	SetActorLocation(StartPosition);
 }
