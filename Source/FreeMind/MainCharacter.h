@@ -28,8 +28,7 @@ public:
 	// my desig
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UStaticMeshComponent* CharacterMesh;
+	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float Speed = 50.f;
@@ -61,8 +60,6 @@ public:
 
 	void LowerSanity();
 	void RaiseSanity();
-
-	void FindPlatform();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Location")
 	FVector PlayerLocation;

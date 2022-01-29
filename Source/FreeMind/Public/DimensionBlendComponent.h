@@ -33,4 +33,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Actors | OldYLocation")
 	float OldY;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Sanity")
+	bool bInsanityDimenson = false;
+
+	UFUNCTION(BlueprintCallable)
+	void SwapDimensions();
 };

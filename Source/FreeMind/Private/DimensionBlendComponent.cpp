@@ -24,15 +24,10 @@ UDimensionBlendComponent::UDimensionBlendComponent()
 void UDimensionBlendComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
+	SwapDimensions();
 	// ...
 	
-	ThreeDSpace = GetOwner()->GetActorLocation();
-
-	TwoDSpace = ThreeDSpace;
-	TwoDSpace.Y = 0.f;
-
-	OldY = ThreeDSpace.Y;
+	
 	
 }
 
@@ -41,7 +36,16 @@ void UDimensionBlendComponent::BeginPlay()
 void UDimensionBlendComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
+	
 	// ...
+}
+
+void UDimensionBlendComponent::SwapDimensions() {
+	ThreeDSpace = GetOwner()->GetActorLocation();
+
+	TwoDSpace = ThreeDSpace;
+	TwoDSpace.Y = 0.f;
+
+	OldY = ThreeDSpace.Y;
 }
 

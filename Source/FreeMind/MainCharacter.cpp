@@ -16,8 +16,7 @@ AMainCharacter::AMainCharacter()
 	PlayerLocation = FVector::ZeroVector;
 	EndRayLocation = FVector::ZeroVector;
 
-	CharacterMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	CharacterMesh->SetupAttachment(GetRootComponent());
+	
 }
 
 // Called when the game starts or when spawned
@@ -33,7 +32,6 @@ void AMainCharacter::BeginPlay()
 void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	FindPlatform();
 }
 
 // Called to bind functionality to input
@@ -47,8 +45,10 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindAxis("LookY", this, &AMainCharacter::LookY);
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMainCharacter::DoJump);
+
 	//PlayerInputComponent->BindAction("Switch", IE_Pressed, this, &AMainCharacter::SwitchDimetion);
 	PlayerInputComponent->BindAction("KillSelf", IE_Pressed, this, &AMainCharacter::Damage);
+
 
 }
 
@@ -56,7 +56,7 @@ void AMainCharacter::MoveForward(float Val)
 {
 	if (bInsanityDimenson)
 	{
-
+		
 	}
 	else
 	{
@@ -83,11 +83,32 @@ void AMainCharacter::MoveRight(float Val)
 }
 
 void AMainCharacter::LookX(float Val) {
-	AddControllerYawInput(Val * LookSpeed);
+
+	if (bInsanityDimenson)
+	{
+		
+	}
+	else
+	{
+		AddControllerYawInput(Val * LookSpeed);
+
+	}
+
+	
+	
 }
 
 void AMainCharacter::LookY(float Val) {
-	AddControllerPitchInput(-Val * LookSpeed);
+	if (bInsanityDimenson)
+	{
+		
+	}
+	else
+	{
+		AddControllerPitchInput(-Val * LookSpeed);
+
+	}
+
 }
 
 void AMainCharacter::DoJump()
@@ -116,29 +137,6 @@ void AMainCharacter::RaiseSanity() {
 	}
 }
 
-void AMainCharacter::FindPlatform() {
-	//PlayerLocation = GetActorLocation();
-	//EndRayLocation = PlayerLocation;
-	//EndRayLocation.Z -= 150;
-
-	//FCollisionQueryParams TraceParams(FName(TEXT("")), false, GetOwner());
-
-	//FHitResult hit{};
-	//
-	//bool bHit = GetWorld()->LineTraceSingleByChannel(
-	//	hit,
-	//	PlayerLocation,
-	//	EndRayLocation,
-	//	FCollisionObjectQueryParams(ECollisionChannel::ECC_WorldDynamic),
-	//	TraceParams
-	//);
-	//
-	//if (bHit) {
-	//	FString temp = hit.GetActor()->GetName();
-	//	UE_LOG(LogTemp, Warning, TEXT("%s"), *temp);
-	//}
-	//
-}
 
 void AMainCharacter::Damage()
 {
@@ -152,7 +150,6 @@ void AMainCharacter::Damage()
 		GameOver();
 		UE_LOG(LogTemp, Warning, TEXT("Respawned"));
 		Health = 5;
-
 	}
 }
 
