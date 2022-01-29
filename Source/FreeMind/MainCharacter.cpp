@@ -45,19 +45,36 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	PlayerInputComponent->BindAxis("LookY", this, &AMainCharacter::LookY);
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMainCharacter::DoJump);
+	//PlayerInputComponent->BindAction("Switch", IE_Pressed, this, &AMainCharacter::SwitchDimetion);
 }
 
 void AMainCharacter::MoveForward(float Val)
 {
-	AddMovementInput(GetActorForwardVector(), Val * Speed);
+	if (bInsanityDimenson)
+	{
+
+	}
+	else
+	{
+		AddMovementInput(GetActorForwardVector(), Val * Speed);
+	}
+
 
 }
 
 void AMainCharacter::MoveRight(float Val)
 {
 	
+
+	if (bInsanityDimenson)
+	{
+		AddMovementInput(-FVector::XAxisVector, Val * Speed);
+	}
+	else
+	{
 		AddMovementInput(GetActorRightVector(), Val * Speed);
 
+	}
 	
 }
 
@@ -94,6 +111,8 @@ void AMainCharacter::RaiseSanity() {
 		SanityAmount = 100;
 	}
 }
+
+
 
 
 

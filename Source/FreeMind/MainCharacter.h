@@ -52,11 +52,17 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void DoJump();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Sanity")
+		bool bInsanityDimenson = false;
+
 	//Joachim sanity bar
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player | Sanity")
 		int SanityAmount;
 
 	void LowerSanity();
 	void RaiseSanity();
+
+
+
 
 };
