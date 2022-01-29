@@ -25,7 +25,7 @@ void AMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	
+	StartPosition = GetActorLocation();
 
 }
 
@@ -48,6 +48,8 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &AMainCharacter::DoJump);
 	//PlayerInputComponent->BindAction("Switch", IE_Pressed, this, &AMainCharacter::SwitchDimetion);
+	PlayerInputComponent->BindAction("KillSelf", IE_Pressed, this, &AMainCharacter::Damage);
+
 }
 
 void AMainCharacter::MoveForward(float Val)
@@ -138,5 +140,23 @@ void AMainCharacter::FindPlatform() {
 	//
 }
 
+void AMainCharacter::Damage()
+{
+	if ((Health - 1) > 0) {
+		Health -= 1;
+		UE_LOG(LogTemp, Warning, TEXT("Health subtracted"));
 
+	}
+	else
+	{
+		GameOver();
+		UE_LOG(LogTemp, Warning, TEXT("Respawned"));
+		Health = 5;
 
+	}
+}
+
+void AMainCharacter::GameOver()
+{
+	SetActorLocation(StartPosition);
+}
