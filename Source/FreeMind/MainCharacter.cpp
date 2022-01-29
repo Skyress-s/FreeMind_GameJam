@@ -16,8 +16,7 @@ AMainCharacter::AMainCharacter()
 	PlayerLocation = FVector::ZeroVector;
 	EndRayLocation = FVector::ZeroVector;
 
-	CharacterMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	CharacterMesh->SetupAttachment(GetRootComponent());
+	
 }
 
 // Called when the game starts or when spawned
@@ -81,6 +80,7 @@ void AMainCharacter::MoveRight(float Val)
 }
 
 void AMainCharacter::LookX(float Val) {
+
 	if (bInsanityDimenson)
 	{
 		

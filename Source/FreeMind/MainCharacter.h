@@ -28,8 +28,7 @@ public:
 	// my desig
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-		class UStaticMeshComponent* CharacterMesh;
+	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float Speed = 50.f;
