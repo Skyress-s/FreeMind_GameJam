@@ -149,11 +149,11 @@ void AMainCharacter::Damage()
 	{
 		GameOver();
 		UE_LOG(LogTemp, Warning, TEXT("Respawned"));
-		Health = 5;
 	}
 }
 
 void AMainCharacter::GameOver()
 {
+	Health = 5;
 	SetActorLocation(StartPosition);
 }
